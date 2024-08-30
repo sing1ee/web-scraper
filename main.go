@@ -54,6 +54,12 @@ func main() {
 		os.WriteFile(fmt.Sprintf("%x.html", filename), []byte(cleanedHTML), 0644)
 		return c.JSON(fiber.Map{"html": cleanedHTML})
 	})
-
-	app.Listen(":3456")
+	// port from command line args
+	// check command line args
+	if len(os.Args) < 2 {
+		fmt.Println("Usage: go run main.go <port>")
+		os.Exit(1)
+	}
+	port := os.Args[1]
+	app.Listen(fmt.Sprintf(":%s", port))
 }

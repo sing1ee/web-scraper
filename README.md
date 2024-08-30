@@ -19,3 +19,7 @@ go run main.go
 ```
 go build -o web-scraper main.go
 ```
+
+# note
+
+this project is generate by AI.
